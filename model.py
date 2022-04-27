@@ -158,7 +158,7 @@ def get_togo_cluster(train, train_scaled, validate, validate_scaled, test, test_
     X_validate_scaled = scaler.transform(X_validate[cluster_vars])
     X_test_scaled = scaler.transform(X_test[cluster_vars]) 
     # Create KMeans
-    kmeans = KMeans(n_clusters=3)
+    kmeans = KMeans(n_clusters=3, random_state=123)
     kmeans.fit(X_train_scaled)
     kmeans.predict(X_train_scaled)
     # Store the predicted cluster back into our original dataframe.
@@ -174,7 +174,7 @@ def get_togo_cluster(train, train_scaled, validate, validate_scaled, test, test_
 def baseline(df):
     df['baseline'] = 1
     baseline_accuracy = (df.baseline == df.IsPass).mean()
-    print(f'Baseline is {(baseline_accuracy):.3%}')
+    print(f'Baseline is {(baseline_accuracy):.2%}')
     return
 
 # Set x and y's based on features
@@ -210,14 +210,14 @@ def model_accuracy(x_train, y_train, x_validate, y_validate, x_test, y_test):
     logit.fit(x_train, y_train)
 
     # Create a Decision Tree model and set Tree max depth
-    tree = DecisionTreeClassifier(max_depth = 6)
+    tree = DecisionTreeClassifier(max_depth = 6, random_state=123)
     # Fit the model
     tree.fit(x_train,y_train.IsPass)
 
     # Create a Random Forest model and set the number of trees and the max depth of 6 
     # based on loop used to find best performing k-value
     # Create the model with max depth of 16
-    rf = RandomForestClassifier(max_depth=16,min_samples_leaf=16,random_state=1349)
+    rf = RandomForestClassifier(max_depth=16,min_samples_leaf=16,random_state=123)
     # Fit the model
     rf.fit(x_train, y_train)  
 
@@ -229,24 +229,24 @@ def model_accuracy(x_train, y_train, x_validate, y_validate, x_test, y_test):
     # Print the accuracy of each model
     print('==================================================================')
     # Accuracy on train for  Logistic Regression:
-    print(f'Accuracy of Logistic Regression on the training set is {(logit.score(x_train, y_train)):.3%}')
+    print(f'Accuracy of Logistic Regression on the training set is {(logit.score(x_train, y_train)):.2%}')
     # Accurcy on validate for Logistic Regression:
-    print(f'Accuracy of Logistic Regression on the validation set is {(logit.score(x_validate, y_validate)):.3%}')
+    print(f'Accuracy of Logistic Regression on the validation set is {(logit.score(x_validate, y_validate)):.2%}')
     print('------------------------------------------------------------------')
     # Accuracy on train for the Decision Tree:
-    print(f'Accuracy of Decision Tree Classifier on the training set is {(tree.score(x_train, y_train)):.3%}')
+    print(f'Accuracy of Decision Tree Classifier on the training set is {(tree.score(x_train, y_train)):.2%}')
     # Accuracy on validate for the Decision Tree:
-    print(f'Accuracy of Decision Tree Classifier on the validation set is {(tree.score(x_validate, y_validate)):.3%}')
+    print(f'Accuracy of Decision Tree Classifier on the validation set is {(tree.score(x_validate, y_validate)):.2%}')
     print('------------------------------------------------------------------')
     # Accuracy on train for the Random Forest:
-    print(f'Accuracy of Random Forest on the training set is {(rf.score(x_train, y_train)):.3%}')
+    print(f'Accuracy of Random Forest on the training set is {(rf.score(x_train, y_train)):.2%}')
     # Accurcy on validate for the Random Forest:
-    print(f'Accuracy of Random Forest on the validation set is {(rf.score(x_validate, y_validate)):.3%}')
+    print(f'Accuracy of Random Forest on the validation set is {(rf.score(x_validate, y_validate)):.2%}')
     print('------------------------------------------------------------------')
     # Accuracy on train for  KNN:
-    print(f'Accuracy of KNN on the training set is {(knn.score(x_train, y_train)):.3%}')
+    print(f'Accuracy of KNN on the training set is {(knn.score(x_train, y_train)):.2%}')
     # Accurcy on validate for KNN:
-    print(f'Accuracy of KNN on the validation set is {(knn.score(x_validate, y_validate)):.3%}')
+    print(f'Accuracy of KNN on the validation set is {(knn.score(x_validate, y_validate)):.2%}')
     print('==================================================================')
     return
 
@@ -259,8 +259,11 @@ def decision_tree_best_on_test(x_test, y_test, df):
     # Accuracy on train for the Decision Tree:
     df['baseline'] = 1
     baseline_accuracy = (df.baseline == df.IsPass).mean()
-    print(f'Baseline Accuracy of Decision Tree Classifier is {(baseline_accuracy):.3%}')
+    print('=====================================================================')
+    print(f'Baseline Accuracy of Decision Tree Classifier is {(baseline_accuracy):.2%}')
     # Accurcy on validate for the Decision Tree:
-    print(f'Accuracy of Decision Tree Classifier on the test set is {(tree.score(x_test, y_test)):.3%}')
+    print(f'Accuracy of Decision Tree Classifier on the test set is {(tree.score(x_test, y_test)):.2%}')
+    print('---------------------------------------------------------------------')
     # By how much
-    print(f'Accuracy of Decision Tree Classifier on the test set is {(tree.score(x_test, y_test) - baseline_accuracy):.3%}') 
+    print(f'Accuracy gained with use of the new model on the test set is {(tree.score(x_test, y_test) - baseline_accuracy):.2%}') 
+    print('=====================================================================')

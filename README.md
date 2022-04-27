@@ -97,7 +97,7 @@ Plan ➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
 
 
 ### 5. MODEL & EVALUATE
-- Use clusters to evaluate drivers of assessed tax value
+- Use clusters to evaluate drivers of offensive pass plays
 - Create a baseline
 - Make predictions of models and what they say about the data
 - Compare all models to evaluate the best for use
@@ -106,7 +106,7 @@ Plan ➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
 
 
 ### 6. DELIVERY
-- Present a final Jupyter Notebook
+- Present a final Jupyter Notebook that utilizes a written report format
 - Make modules used and project files available on Github
 
 ---- 
@@ -121,7 +121,7 @@ Plan ➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
 
 4. Ensure pandas, numpy, matplotlib, scipy, sklearn, and seaborn are available
 
-5. Follow steps outline in this README.md to run Final_Zillow_Report.ipynb
+5. Follow steps outline in this README.md to run final_report_pass_run.ipynb
 
 
 ---- 
@@ -133,10 +133,10 @@ Plan ➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
 - Down
 - Yardline
 - togo_cluster (Yards to go along with seconds left in the game)
-Using these drivers to help our model resulted in an increase of 3% over the baseline.
+Using these drivers to help our model resulted in an increase of 2.74% over the baseline.
 
 #### Recommendation(s):
-An increase of 2.63% isn't impactful enough to push the model forward to help with predictions in future or real time scenarios. The model must be further refined.
+An increase of 2.74% isn't impactful enough to push the model forward to help with predictions in future or real time scenarios. The model must be further refined.
 
 #### Next Steps:
 With more time, I would like to:
