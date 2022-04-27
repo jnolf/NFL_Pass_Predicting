@@ -260,7 +260,7 @@ def decision_tree_best_on_test(x_test, y_test, df):
     df['baseline'] = 1
     baseline_accuracy = (df.baseline == df.IsPass).mean()
     print('==================================================================')
-    print(f'Baseline Accuracy of Decision Tree Classifier is {(baseline_accuracy):.2%}')
+    print(f'Baseline accuracy for the train data set is {(baseline_accuracy):.2%}')
     # Accurcy on validate for the Decision Tree:
     print(f'Accuracy of Decision Tree Classifier on the test set is {(tree.score(x_test, y_test)):.2%}')
     print('------------------------------------------------------------------')
