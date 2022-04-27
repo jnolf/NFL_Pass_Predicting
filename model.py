@@ -227,27 +227,27 @@ def model_accuracy(x_train, y_train, x_validate, y_validate, x_test, y_test):
     knn.fit(x_train,y_train)
 
     # Print the accuracy of each model
-    print('==================================================================')
+    print('====================================================================')
     # Accuracy on train for  Logistic Regression:
     print(f'Accuracy of Logistic Regression on the training set is {(logit.score(x_train, y_train)):.2%}')
     # Accurcy on validate for Logistic Regression:
     print(f'Accuracy of Logistic Regression on the validation set is {(logit.score(x_validate, y_validate)):.2%}')
-    print('------------------------------------------------------------------')
+    print('--------------------------------------------------------------------')
     # Accuracy on train for the Decision Tree:
     print(f'Accuracy of Decision Tree Classifier on the training set is {(tree.score(x_train, y_train)):.2%}')
     # Accuracy on validate for the Decision Tree:
     print(f'Accuracy of Decision Tree Classifier on the validation set is {(tree.score(x_validate, y_validate)):.2%}')
-    print('------------------------------------------------------------------')
+    print('--------------------------------------------------------------------')
     # Accuracy on train for the Random Forest:
     print(f'Accuracy of Random Forest on the training set is {(rf.score(x_train, y_train)):.2%}')
     # Accurcy on validate for the Random Forest:
     print(f'Accuracy of Random Forest on the validation set is {(rf.score(x_validate, y_validate)):.2%}')
-    print('------------------------------------------------------------------')
+    print('--------------------------------------------------------------------')
     # Accuracy on train for  KNN:
     print(f'Accuracy of KNN on the training set is {(knn.score(x_train, y_train)):.2%}')
     # Accurcy on validate for KNN:
     print(f'Accuracy of KNN on the validation set is {(knn.score(x_validate, y_validate)):.2%}')
-    print('==================================================================')
+    print('====================================================================')
     return
 
 def decision_tree_best_on_test(x_test, y_test, df):
@@ -259,11 +259,11 @@ def decision_tree_best_on_test(x_test, y_test, df):
     # Accuracy on train for the Decision Tree:
     df['baseline'] = 1
     baseline_accuracy = (df.baseline == df.IsPass).mean()
-    print('=====================================================================')
+    print('==================================================================')
     print(f'Baseline Accuracy of Decision Tree Classifier is {(baseline_accuracy):.2%}')
     # Accurcy on validate for the Decision Tree:
     print(f'Accuracy of Decision Tree Classifier on the test set is {(tree.score(x_test, y_test)):.2%}')
-    print('---------------------------------------------------------------------')
+    print('------------------------------------------------------------------')
     # By how much
     print(f'Accuracy gained with use of the new model on the test set is {(tree.score(x_test, y_test) - baseline_accuracy):.2%}') 
-    print('=====================================================================')
+    print('==================================================================')
