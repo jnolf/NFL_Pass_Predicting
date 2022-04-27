@@ -228,25 +228,25 @@ def model_accuracy(x_train, y_train, x_validate, y_validate, x_test, y_test):
 
     # Print the accuracy of each model
     print('==================================================================')
-    # Accuracy on train for  KNN:
+    # Accuracy on train for  Logistic Regression:
     print(f'Accuracy of Logistic Regression on the training set is {(logit.score(x_train, y_train)):.3%}')
-    # Accurcy on validate for KNN:
-    print(f'Accuracy of Logistic Regression on the validate set is {(logit.score(x_validate, y_validate)):.3%}')
+    # Accurcy on validate for Logistic Regression:
+    print(f'Accuracy of Logistic Regression on the validation set is {(logit.score(x_validate, y_validate)):.3%}')
     print('------------------------------------------------------------------')
     # Accuracy on train for the Decision Tree:
     print(f'Accuracy of Decision Tree Classifier on the training set is {(tree.score(x_train, y_train)):.3%}')
     # Accuracy on validate for the Decision Tree:
-    print(f'Accuracy of Decision Tree Classifier on the validate set is {(tree.score(x_validate, y_validate)):.3%}')
+    print(f'Accuracy of Decision Tree Classifier on the validation set is {(tree.score(x_validate, y_validate)):.3%}')
     print('------------------------------------------------------------------')
     # Accuracy on train for the Random Forest:
     print(f'Accuracy of Random Forest on the training set is {(rf.score(x_train, y_train)):.3%}')
     # Accurcy on validate for the Random Forest:
-    print(f'Accuracy of Random Forest on the validate set is {(rf.score(x_validate, y_validate)):.3%}')
+    print(f'Accuracy of Random Forest on the validation set is {(rf.score(x_validate, y_validate)):.3%}')
     print('------------------------------------------------------------------')
     # Accuracy on train for  KNN:
     print(f'Accuracy of KNN on the training set is {(knn.score(x_train, y_train)):.3%}')
     # Accurcy on validate for KNN:
-    print(f'Accuracy of KNN on the validate set is {(knn.score(x_validate, y_validate)):.3%}')
+    print(f'Accuracy of KNN on the validation set is {(knn.score(x_validate, y_validate)):.3%}')
     print('==================================================================')
     return
 
