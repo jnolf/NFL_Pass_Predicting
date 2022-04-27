@@ -76,11 +76,11 @@ Plan ➜ Acquire ➜ Prepare ➜ Explore ➜ Model & Evaluate ➜ Deliver
 
 ### 3. PREPARE
 - Ensure all data types are usable
-- Create a function that  will:
-        - drop unneeded columns
-        - get rid of kick formation rows 
-        - get rid of other plays other than pass and run
-        - create a 'SecondsLeft' column
+- Create a function that  will:       
+    - drop unneeded columns
+    - get rid of kick formation rows 
+    - get rid of other plays other than pass and run
+    - create a 'SecondsLeft' column
 - Add a function that splits the acquired data into Train, Validate, and Test sets
 - 20% is originally pulled out in order to test in the end
 - From the remaining 80%, 30% is pullout out to validate training
